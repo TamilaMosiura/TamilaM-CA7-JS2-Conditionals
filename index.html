@@ -1,0 +1,37 @@
+<html>
+<header>
+    <meta name="author" content="Tamila Mosiura">
+    <title>Bear Ninja Hunter!</title>
+</header>
+<body>
+    <div id="content"></div>
+    <script>
+        // here user adds a name
+        const username = prompt('Wellcome to Bear Hunter Ninja, Please enter your name to get started: ');
+        // here I show the user name
+        alert(`Hey, ${username}! Let's play!!!`)
+
+        // here user adds a type
+        const usertype = prompt('Who are you: Bear, Ninja or Hunter?');
+
+        // I pick div element by Id
+        const contentDiv = document.getElementById('content');
+
+        // I create new p element with content of user info
+        const userP = document.createElement('p');
+        const userLog = `${username}, you picked ${usertype}!`
+        userP.textContent = userLog;
+        // add this info to html and than to console
+        contentDiv.appendChild(userP)
+        console.log(userLog);
+
+        // I create new p element with content of computer info
+        const compP = document.createElement('p');
+        const compLog = `The computer picked Bear!`
+        compP.textContent = compLog;
+        // add this info to html and than to console
+        contentDiv.appendChild(compP)
+        console.log(compLog);
+    </script>
+</body>
+</html>
