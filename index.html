@@ -6,10 +6,10 @@
 <body>
     <div id="content"></div>
     <script>
-        // here user adds a name
-        const username = prompt('Wellcome to Bear Hunter Ninja, Please enter your name to get started: ');
+        // here user chooses
+        const userChoice = prompt('Wellcome to Bear Hunter Ninja! Please enter your name to get started: ');
         // here I show the user name
-        alert(`Hey, ${username}! Let's play!!!`)
+        alert(`Hi ${userChoice} Let's play!!!`)
 
         // here user adds a type
         const usertype = prompt('Who are you: Bear, Ninja or Hunter?');
@@ -19,19 +19,73 @@
 
         // I create new p element with content of user info
         const userP = document.createElement('p');
-        const userLog = `${username}, you picked ${usertype}!`
+        const userLog = `${userChoice} you chose ${usertype}!`
         userP.textContent = userLog;
         // add this info to html and than to console
         contentDiv.appendChild(userP)
         console.log(userLog);
 
+        // Here computer makes a random pick
+        const options = ['Bear', 'Ninja', 'Hunter'];
+        // I found I can use the next operation to get random number between 0 and 2
+        // const computerOption = Math.floor(Math.random() * 3);
+        
+        // as shown in the instructions: Remember that for this iteration of the game the computer's choice is still hard coded to Bear.
+        // That's why I set it to 0
+        const computerOption = 0; 
+        const computerType = options[computerOption];
+
         // I create new p element with content of computer info
         const compP = document.createElement('p');
-        const compLog = `The computer picked Bear!`
+        const compLog = `The computer chose ${computerType}!`
         compP.textContent = compLog;
         // add this info to html and than to console
         contentDiv.appendChild(compP)
         console.log(compLog);
+
+        // Here we compare user and computer picks
+        const userChoiceLower = usertype.toLowerCase(); // to make it case insensitive as user can mistakengly enter bear
+        const computerChoiceLower = computerType.toLowerCase();
+
+        // I specified that 0 is draw, 1 is user win, 2 is computer win
+        let resultNumber = 0;
+        if (userChoiceLower === computerChoiceLower) {
+            resultNumber = 0; // draw
+        } else if (userChoiceLower === 'bear' && computerChoiceLower === 'ninja') {
+            resultNumber = 1; // user win
+        } else if (userChoiceLower === 'ninja' && computerChoiceLower === 'hunter') {
+            resultNumber = 1; // user win
+        } else if (userChoiceLower === 'hunter' && computerChoiceLower === 'bear') {
+            resultNumber = 1; // user win
+        } else {
+            resultNumber = 2; // computer win
+        }
+
+        // preparation before showing result
+        const resP = document.createElement('p');
+        let resultLog = '';
+
+        switch(resultNumber) {
+            case 0: {
+                resultLog = "It is a Draw!!";
+                resP.textContent = resultLog;
+                break;
+            }
+            case 1: {
+                resultLog = "You Win!!";
+                resP.textContent = resultLog;
+                break;
+            }
+            case 2: {
+                resultLog = "Computer Win!!";
+                resP.textContent = resultLog;
+                break;
+            }
+        }
+
+        // Log the result
+        contentDiv.appendChild(resP)
+        console.log(resultLog);
     </script>
 </body>
 </html>
