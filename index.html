@@ -7,12 +7,12 @@
     <div id="content"></div>
     <script>
         // here user chooses
-        const userChoice = prompt('Wellcome to Bear Hunter Ninja! Please enter your name to get started: ');
+        const userChoice = prompt('Welcome to Bear Hunter Ninja! Please enter your name to get started: ');
         // here I show the user name
-        alert(`Hi ${userChoice} Let's play!!!`)
+        alert(`Hi ${userChoice} Let's play!!`)
 
         // here user adds a type
-        const usertype = prompt('Who are you: Bear, Ninja or Hunter?');
+        const usertype = prompt('Who are you: Bear, Ninja, or Hunter?');
 
         // I pick div element by Id
         const contentDiv = document.getElementById('content');
@@ -57,7 +57,11 @@
             resultNumber = 1; // user win
         } else if (userChoiceLower === 'hunter' && computerChoiceLower === 'bear') {
             resultNumber = 1; // user win
-        } else {
+        } else if (userChoiceLower === 'hunter' && computerChoiceLower === 'ninja') {
+            resultNumber = 2; // computer win
+        } else if (userChoiceLower === 'bear' && computerChoiceLower === 'hunter') {
+            resultNumber = 2; // computer win
+        } else if (userChoiceLower === 'ninja' && computerChoiceLower === 'bear') {
             resultNumber = 2; // computer win
         }
 
